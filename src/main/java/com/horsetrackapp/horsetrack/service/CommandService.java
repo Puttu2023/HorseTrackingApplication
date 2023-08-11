@@ -43,6 +43,7 @@ public class CommandService {
     }
 
     public String parseCommand(String commandLine){
+        // split the command line input using space
         String[] commandComponents = Arrays.stream(commandLine.split(" "))
                 .map(String::trim)
                 .toArray(String[]::new);

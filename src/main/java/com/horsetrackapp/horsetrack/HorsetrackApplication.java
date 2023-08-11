@@ -23,17 +23,18 @@ public class HorsetrackApplication implements CommandLineRunner {
     }
     @Override
     public void run(String... strings) throws Exception {
-
+        // initialise the data
         accessorModeImplementation.initialize();
+        // print the start-up messages
         accessorModeImplementation.printStartupMessages();
 
+        // Read from the command line
         Scanner commandString = new Scanner(System.in);
         while (!(accessorModeImplementation.quit())) {
-            // Read from the command line
+            // Execute based on the given input command
             accessorModeImplementation.execute(commandString.nextLine());
             System.out.println();
         }
         System.exit(SpringApplication.exit(context));
-
     }
 }

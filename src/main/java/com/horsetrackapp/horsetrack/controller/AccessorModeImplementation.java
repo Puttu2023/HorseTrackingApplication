@@ -36,6 +36,7 @@ public class AccessorModeImplementation implements AccessorMode {
 
     @Override
     public void restock() {
+        // Restocking the machine
         inventoryService.restock();
         reporterService.printInventory();
     }
@@ -77,11 +78,13 @@ public class AccessorModeImplementation implements AccessorMode {
 
     @Override
     public void printStartupMessages() {
+        // print start up messages
         reporterService.startup();
     }
 
     @Override
     public void initialize() {
+        // initiate the process
         configService.startup();
     }
 

@@ -43,10 +43,12 @@ public class InventoryService {
     }
 
     public Inventory getInventory(int denomination){
+        // Find inventory based on the denomination
         return inventoryRepository.findByDenominationEquals(denomination);
     }
 
     public void decrementInventory(int denomination, int amount) {
+        // Find inventory based on the denomination
         Inventory inventory = inventoryRepository.findByDenominationEquals(denomination);
 
         int currentBillCount = inventory.getBillCount();

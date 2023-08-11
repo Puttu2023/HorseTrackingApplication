@@ -15,16 +15,19 @@ public class HorseService {
     private HorseRepository horseRepository;
 
     public String getHorseName(int horseNumber){
+        // Find the horse based on horse number
         Horse horse = horseRepository.findByHorseNumberEquals(horseNumber);
         return horse.getHorseName();
     }
 
     public int getHorseOdds(int horseNumber){
+        // Find the horse based on horse number
         Horse horse = horseRepository.findByHorseNumberEquals(horseNumber);
         return horse.getOdds();
     }
 
     public boolean isHorseWinner(int horseNumber){
+        // Find the horse based on horse number
         Horse horse = horseRepository.findByHorseNumberEquals(horseNumber);
         if(horse.getRaceStatus() == RaceStatus.WON){
             return true;
@@ -34,6 +37,7 @@ public class HorseService {
     }
 
     public boolean isInvalidHorseNumber(int horseNumber){
+        // Find the horse based on horse number and check with null
         if(horseRepository.findByHorseNumberEquals(horseNumber) == null){
             return false;
         } else {
@@ -42,6 +46,7 @@ public class HorseService {
     }
 
     public void setRaceWinner(int horseNumber) {
+        // Find the horses
         List<Horse> horses = horseRepository.findAll();
 
         horses.stream().filter((horse) -> horse.getRaceStatus() == RaceStatus.WON)
@@ -59,6 +64,7 @@ public class HorseService {
     }
 
     public boolean isValidHorseNumber(int horseNumber) {
+        // Find the horse based on horse number
         if(horseRepository.findByHorseNumberEquals(horseNumber) == null){
             return false;
         } else{
